@@ -1,16 +1,12 @@
 <div align="center" class="main home-top">
-  <div class="container">
-    <h1>SQL 整形ツール</h1>
-    <div class="sql_form">
-      <textarea name="content"></textarea>
-      <div class="button"> 
-        <input type="submit" value="整形する">
-        <input type="submit" value="１行に変換する">
+  <%= form_for @home, url: '/home/result' do |f| %>
+    <%= f.label :SQL整形ツール %>
+      <div class="sql_form">
+        <%= f.text_area :content %>
+        <div>
+          <%= f.submit :整形 %>
+        </div>
       </div>
-      <div class="sql_output">
-      
-      </div>
-      </div>
-    </div>
-  </div>
+  <% end %>
 </div>
+

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
-  get "/"=> "home#top"
-
+  root "home#top"
+  get "/home" => "home#top"
+  post "/home/result" => "home#result"
 end
