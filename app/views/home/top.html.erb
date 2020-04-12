@@ -1,12 +1,40 @@
 <div align="center" class="main home-top">
   <%= form_for @home, url: '/home/result' do |f| %>
     <%= f.label :SQL整形ツール %>
+      <div align="center" style="">
+        <br>
+          <table style="border: 1px solid gray;width:320px;font-size: 90%;" >
+            <tr align="left">
+              <td>インデント   ：</td>
+              <td><%= select_tag 'name', options_for_select([ ['前', '1'], ['後', '2']]) %></td>
+            </tr>
+            <tr align="left">
+              <td>AND/OR/ON整形：</td>
+              <td><%= select_tag 'name', options_for_select([ ['前', '1'], ['後', '2']]) %></td>
+            </tr>
+            <tr align="left">
+              <td>カンマ整形   ：</td>
+              <td><%= select_tag 'name', options_for_select([ ['前', '1'], ['後', '2']]) %></td>
+            </tr>
+            <tr align="left">
+              <td>予約語       ：</td>
+              <td><%= select_tag 'name', options_for_select([ ['変換なし', '1'], ['大文字', '2'], ['小文字', '3']]) %></td>
+            </tr>
+            <tr align="left">
+              <td>JOIN形式     ：</td>
+              <td><%= select_tag 'name', options_for_select([ ['  ', '1'], ['       ', '2'], ['        ', '3']]) %></td>
+            </tr>
+          </table>
+        <br>
+      </div>
       <div class="sql_form">
-        <%= f.text_area :content %>
-        <div>
+          <%= f.text_area :content %>
+      <div>
           <%= f.submit :整形 %>
         </div>
       </div>
   <% end %>
 </div>
+
+
 

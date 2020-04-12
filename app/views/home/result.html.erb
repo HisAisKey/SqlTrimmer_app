@@ -6,3 +6,10 @@
   <%= link_to("戻る","/") %>
 </div>
 
+
+<div>
+  <ul>
+    <li>タブの種類：
+      <%= select_tag 'name', options_for_select([ ['タブ', '1'], ['スペース(2)', '2'], ['スペース(4)', '3']]) %>
+    </li>
+</div>

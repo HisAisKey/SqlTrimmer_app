@@ -8,6 +8,5 @@ class HomeController < ApplicationController
   def result
     home = params[:home].permit(:content)
     @home =Home.new(home)
-    @test = Home.new
   end
 end
