@@ -1,9 +1,9 @@
 class Home
   include ActiveModel::Model
-  attr_accessor :content
+  attr_accessor :content, :i, :and_or_on, :c, :re, :j
   validates :content, presence: true
 
-#フォームからの入力をそのまま文字列として獲得
+#フォームからの入力をそのまま文字列て獲得
   def make_arr
     if self.content
       self.content.split(" ")
@@ -38,7 +38,7 @@ class Home
   end
 
 
-#整形メソッド
+  #整形メソッド
   def trim
     @trimmer = self.make_arr
     @trimmer.map do |str|
@@ -49,4 +49,23 @@ class Home
       end
     end 
   end
+
+  def test1
+    @test1 = self.make_arr
+    @test2 = self.change_word_big
+    @test3 = self.change_word_small
+    @word = self.re
+    if @word == "1"
+      @test1.inject(){|a,b| "#{a} #{b}"}
+    elsif @word == "2"
+      @test2.inject(){|a,b| "#{a} #{b}"}
+    elsif @word =="3"  
+      @test3.inject(){|a,b| "#{a} #{b}"}
+    end
+  end
+
+
+
 end
+
+
