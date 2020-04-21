@@ -6,7 +6,7 @@ class HomeController < ApplicationController
   end
 
   def result
-    home = params[:home].permit(:content, :i, :and_or_on, :c, :re, :j)
+    home = params[:home].permit(:content, :i, :and_or_on, :c, :re, :j, :output)
     @home =Home.new(home)
   end
 end
