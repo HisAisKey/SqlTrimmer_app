@@ -9,6 +9,7 @@ class Home
     self.content.split(" ")
   end
 
+#文字列の変換、要素の連結  
   def edit_arr
     sql = self.word_changee
     conect_word(sql)
@@ -61,6 +62,10 @@ class Home
         case con2
         when "1"
           if @@con_reserve_word2.include?(x.downcase)
+            if temp_str != ""
+              re_sql << temp_str
+              temp_str = ""
+            end 
             temp_str = "#{x}"
           elsif temp_str != "" && @@con_reserve_word2.include?(sql[int - 1].downcase)
             temp_str = "#{temp_str} #{x}"
@@ -115,7 +120,7 @@ class Home
 @@double_symbol = %w[<> <= >= || != ]
 @@math_symbol = %w[+ * - = / < > <> <= >= || != &&]
 @@single_symbol = %w[" ? % & ' ( ) | , . : ; !]
-@@con_reserve_word = %w[as betweenlike]
+@@con_reserve_word = %w[as between like]
 @@by_reserve_word = %w[group order by]
 @@con_reserve_word2 = %w[and or on]
 @@sp_reserve_word = ["select", "from", "where", "union", "group by", "order by"]
@@ -204,7 +209,7 @@ class Home
       #----------------------------------------------------
       
       x = [x]
-binding.pry
+#binding.pry
       #予約語に含まれてるか
       if @@sp_reserve_word.include?(x[0].downcase)
         if @sql_tree.include?(x[0])
